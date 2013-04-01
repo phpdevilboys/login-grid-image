@@ -1,5 +1,15 @@
 <?php
-session_start();
+/**
+ * @Author : Anoop singh
+ * @Email  : anoop.immortal@gmail.com
+ * @Timestamp : Aug-29-2011 06:11PM
+ * @Version : 0.0
+ * @Description : Files contains Image with random number used in this package.
+**/
+
+/// -- TODO:: This is only a Proof of Concept --
+@session_start();
+/// -- Check if Submit is clicked ---
 if(isset($_REQUEST["btnGo"]) and @$_REQUEST["ch5temp"]!="")
 {
 		$correctResult="";
@@ -19,34 +29,35 @@ if(isset($_REQUEST["btnGo"]) and @$_REQUEST["ch5temp"]!="")
 }
 else
 {
-	//include("grid_image.php");
+	echo "Something Went Wrong. You Clicked on Wrong Number!!!<br>";
 }
-
 ?>
 
 <html>
 	<head>
-			<script type="text/javascript">
-				var iNbClic = 0; 
-				function Grille(iCase)
-				{
-					 if(iNbClic <6)
-					 {
-						 document.logincanalnetbis.ch5temp.value = document.logincanalnetbis.ch5temp.value + iCase;
-						 document.logincanalnetbis.ch2.value = document.logincanalnetbis.ch2.value + '*';
-					 	 iNbClic ++;
-					 }
-				}  
-			</script>
+		<script type="text/javascript">
+			var iNbClic = 0; 
+			function Grille(iCase)
+			{
+				 if(iNbClic <6)
+				 {
+					 document.logincanalnetbis.ch5temp.value = document.logincanalnetbis.ch5temp.value + iCase;
+					 document.logincanalnetbis.ch2.value = document.logincanalnetbis.ch2.value + '*';
+					 iNbClic ++;
+				 }
+			}  
+		</script>
 	</head>
 	<body>
-			<form method="post" name="logincanalnetbis" action="codecheck.php">
-					<INPUT type=hidden value="" name="ch5temp">
-					<img border="0" usemap="#MapGril" src="http://192.168.0.226/demo/gridimage/grid_image.php">
-					<input maxlength="6" name="ch2" value="" type="password" disabled>
-					<input type="submit" name="btnGo" id="btnGo" value="go">
-			</form>
-			<MAP name="MapGril">
+		<form method="post" name="logincanalnetbis" action="codecheck.php">
+				<INPUT type=hidden value="" name="ch5temp">
+				<img border="0" usemap="#MapGril" src="grid_image.php">
+				<input maxlength="6" name="ch2" value="" type="password" disabled>
+				<input type="submit" name="btnGo" id="btnGo" value="go">
+				<br/>
+				Click On numbers of your choice.
+		</form>
+		<MAP name="MapGril">
           <area nohref onclick="Javascript:Grille('01')" ondblclick="Javascript:if (navigator.appName=='Microsoft Internet Explorer') {Grille('01')}" shape="rect" coords="6,5,25,24">
           <area nohref onclick="Javascript:Grille('02')" ondblclick="Javascript:if (navigator.appName=='Microsoft Internet Explorer') {Grille('02')}" shape="rect" coords="32,5,51,24">
           <area nohref onclick="Javascript:Grille('03')" ondblclick="Javascript:if (navigator.appName=='Microsoft Internet Explorer') {Grille('03')}" shape="rect" coords="58,5,77,24">
@@ -74,7 +85,7 @@ else
           <area nohref onclick="Javascript:Grille('23')" ondblclick="Javascript:if (navigator.appName=='Microsoft Internet Explorer') {Grille('23')}" shape="rect" coords="58,106,77,125">
           <area nohref onclick="Javascript:Grille('24')" ondblclick="Javascript:if (navigator.appName=='Microsoft Internet Explorer') {Grille('24')}" shape="rect" coords="84,106,103,125">
           <area nohref onclick="Javascript:Grille('25')" ondblclick="Javascript:if (navigator.appName=='Microsoft Internet Explorer') {Grille('25')}" shape="rect" coords="110,106,129,125">
-</MAP>	
-</body>
+		</MAP>	
+	</body>
 </html>
 
